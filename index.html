@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <!--Animate on scroll library, basically the foundation of the scroll animations in css-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" href="/assets/m.png" />
+  </head>
+  <body>
+    <section id="landing-page">
+      <nav>
+        <figure>
+          <img id="personal-logo" src="./assets/m.png" alt="" />
+        </figure>
+        <ul class="nav_link--list">
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >About</a
+            >
+          </li>
+          <li class="nav__link">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Projects</a
+            >
+          </li>
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a href="#" class="nav__link--anchor"
+              ><i class="fa-solid fa-moon" id="moon"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <header class="header">
+        <div
+          class="header-content"
+          data-aos="fade-up"
+          data-aos-delay="0"
+          data-aos-duration="1000"
+        >
+          <div
+            class="cube__container"
+            data-aos="fade-left"
+            data-aos-delay="500"
+            data-aos-duration="2000"
+          >
+            <div class="cube">
+              <div class="face front"></div>
+              <div class="face back"></div>
+              <div class="face right"></div>
+              <div class="face left"></div>
+              <div class="face top"></div>
+              <div class="face bottom"></div>
+            </div>
+            <b class="cube__para orange"
+              >If this doesn't look like a cube,<br /> <!--my br spamming problem persists-->
+              you might have to blink once or twice;<br />
+              perspective is tricky.</b
+            >
+          </div>
+          <h1 class="title">Hey,</h1>
+          <h1 class="title orange">I'm Gabriel.</h1>
+          <p class="header__para" id="-headerpara">
+            I'm an aspiring <b class="orange">Software Engineer</b> with a passion
+            for maintaining useful applications and making them fun.
+            <br />
+            Here's a bit more
+            <b class="orange click" onclick="toggleModal()">about me</b>.
+          </p>
+          <div class="social__list">
+            <a
+              href="https://github.com/apoc101"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+      <button class="mail__btn click" onclick="toggleModal()">
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__sub-title--about" name="modaltitle">
+            Here's a bit about me.
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Software Developer
+          </h4>
+          <p class="modal__para" name="modalpara">
+            I'm a 17 year-old Italian-American aspiring
+            <b class="orange">Software Developer </b> looking for experience in application development.
+            <br />
+            I currently study
+            <b class="orange">Object-Oriented Programming</b>, with an emphasis on C# and C++.
+          </p>
+          <div class="modal__languages">
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/82/Devicon-html5-plain.svg"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">CSS3</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">JavaScript</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">React</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">GitHub</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/03/Git_format.png"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">Git</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg"
+                class="modal__language--img"
+                alt=""
+              />
+              <span class="language__name">NPM</span>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title-contact">Let's talk!</h3>
+          <h3 class="modal__sub-title modal__sub-title-contact">
+            I would love to hear from you.
+          </h3>
+          <form onsubmit="contact(event)" id="contact__form">
+            <div class="form__item">
+              <label class="form__item--label">Name</label>
+              <input class="input" name="user_name" type="text" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Email</label>
+              <input class="input" name="user_email" type="email" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea
+                class="input"
+                name="message"
+                type="text"
+                required
+              ></textarea>
+            </div>
+            <button id="contact__submit" class="form__submit">
+              Send it my way
+            </button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message! Looking forward to speaking to you soon.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <div
+        class="container"
+        data-aos="fade-up"
+        data-aos-delay="0"
+        data-aos-duration="1000"
+      >
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my <span class="orange">projects</span>
+          </h1>
+          <ul class="project__list">
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="./assets/terminalibs.png" class="project__img" alt="" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    TerminaLibs
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    C#
+                  </h4>
+                  <p class="project__description--para">
+                    I built a program to emulate the Mad Libs that I was so used to doing as a kid for nostalgic purposes. <br>
+                    Built with Array Lists to massively speed up the program, I used this as practice for a simple CMD program.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/Apoc101/TerminaLibs"
+                      class="project__description--link"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="./assets/flashcard.png" class="project__img" alt="" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Flashcards</h3>
+                  <h4 class="project__description--sub-title">
+                    HTML, CSS, JavaScript, React, API
+                  </h4>
+                  <p class="project__description--para">
+                    A React App which uses the OpenTrivia API to search
+                    for flashcards in whatever subject you choose.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/Apoc101/flashcard-app"
+                      class="project__description--link"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a
+                      href="https://apoc101.github.io/flashcard-app/"
+                      class="project__description--link"
+                      target="_blank"
+                    >
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/ghetti.png"
+                  class="project__img"
+                  alt=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">GhettiBot</h3>
+                  <h4 class="project__description--sub-title">
+                    NodeJS
+                  </h4>
+                  <p class="project__description--para">
+                    A discord bot with FS (filesystem) integration for more advanced functions, built to test my Node and API knowledge.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/Apoc101/GhettiBot/"
+                      class="project__description--link"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="./assets/celli.png" class="project__img" alt="" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    CelliClicker
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    C#, Windows Forms
+                  </h4>
+                  <p class="project__description--para">
+                    A clicker game inspired by a mobile version made by a friend, made with Visual Studio in Forms and available also for Mac with .NET Core.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/Apoc101/CelliClickerDesktop"
+                      class="project__description--link"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div
+          class="row footer_row"
+          data-aos="fade-up"
+          data-aos-delay="0"
+          data-aos-duration="1000"
+        >
+          <figure>
+            <img id="footer-logo" src="./assets/logo.png" alt="" />
+          </figure>
+          <div class="footer__social--list">
+            <a
+              href="https://github.com/apoc101"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              target="_blank"
+            >
+              GitHub
+            </a>
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              onclick="toggleModal()"
+            >
+              Contact
+            </a>
+          </div>
+          <div class="footer__copyright">Copyright © Gabriel</div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ec1a2aeda3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("CYWsMgTd3elfUNQzp");
+      })();
+    </script>
+  </body>
+</html>
