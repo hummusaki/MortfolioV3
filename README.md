@@ -2,4 +2,6 @@
 
 My portfolio made in React and standalone CSS (including some nice 3D effects!)
 
-Very proud of it, and it's very likely to be my final portfolio, but you never know :)
+It uses the AOS (Animate-on-scroll) and MailJS plugins to polish it and make contact with me much easier.
+
+I'm very proud of it, and it's very likely to be my final portfolio, but you never know :)
