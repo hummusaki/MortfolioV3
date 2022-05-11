@@ -40,12 +40,23 @@ function contact() {
     });
 }
 
-function toggleModal() {
+function openModal() {
   // Toggle contact modal
-  if (isModalOpen) {
-    isModalOpen = false;
-    return document.body.classList.remove("modal--open");
-  }
   isModalOpen = true;
   document.body.classList += " modal--open";
+  window.scrollTo(0, 0);
+}
+
+function closeModal() {
+    isModalOpen = false;
+    document.body.classList.remove("modal--open");
+}
+
+function toggleModal() {
+  if (isModalOpen) {
+    closeModal();
+  }
+  else {
+    openModal();
+  }
 }
