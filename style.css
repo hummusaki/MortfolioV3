@@ -362,7 +362,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: all 300ms ease-in;
+  transition: all 250ms ease-in;
 }
 
 .modal--open .modal__about,
