@@ -1,6 +1,7 @@
 let isModalOpen = false;
 let contrastToggle = false;
 const scaleFactor = 1 / 20;
+const favicon = document.getElementById("favicon");
 
 AOS.init(); // Initialize AOS plugin
 // AOS = Animate On scroll
@@ -10,10 +11,14 @@ function toggleContrast() {
   contrastToggle = !contrastToggle;
   if (contrastToggle) {
     document.body.classList += " dark-theme";
+    favicon.setAttribute("href", "/assets/m.png");
   } else {
     document.body.classList.remove("dark-theme");
+    favicon.setAttribute("href", "/assets/m2.png");
   }
 }
+
+
 
 function contact() {
   // Email plugin stuff
@@ -60,6 +65,8 @@ function toggleModal() {
     openModal();
   }
 }
+
+
 
 document.addEventListener('keydown', function(event){
   if(event.key == "Escape"){
