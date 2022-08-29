@@ -159,7 +159,7 @@ nav,
 }
 
 .dark-theme #personal-logo {
-  filter: none;
+  filter: invert();
 }
 
 .dark-theme .scroll__icon {
