@@ -45,7 +45,7 @@
                 loadingProgress.textContent = '97';
                 // i use ip-api.com for the next request, but using their api over https requires an api key so unfortunately we need to proxy it
                 // yes it's a stupid limitation for an API
-                const detailed = await (await fetch(`http://ip-api.com/json/${basic.YourFuckingIPAddress}`).catch(() => e('Disable your aggressive ad-blocker and refresh'))).json().catch(e);
+                const detailed = await (await fetch(`https://we-are-jammin.xyz/detailed/${basic.YourFuckingIPAddress}`).catch(() => e('Disable your aggressive ad-blocker and refresh'))).json().catch(e);
                 loadingProgress.textContent = '99';
                 const detector = new BrowserDetector(window.navigator.userAgent).parseUserAgent();
                 p('IP Address', basic.YourFuckingIPAddress);
@@ -116,7 +116,6 @@
                 data.style.fontSize = fontSize + 'px';
                 interval = setInterval(() => {
                     const time = video.currentTime - 2.166 - step * 0.500;
-                    // const time = video.currentTime - 0 - step * 0.100;
                     if (time > 0) {
                         if (step == 0) document.title = 'You got funnied';
                         const el = document.createElement('span');
