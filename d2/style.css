@@ -1,0 +1,38 @@
+*{
+    background-color: #111111;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+p{
+    color: rgb(229, 232, 235);
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+a{
+    text-decoration: none;
+}
+
+.title-cont{
+    text-align: center;
+    color: rgb(239, 241, 243);
+    position: absolute;
+    top: 3%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    font-size: 35px;
+    animation-duration: 0.5s;
+}
+
