@@ -1,38 +1,168 @@
 *{
     background-color: #111111;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
     line-height: 1.5;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 body{
     overflow-x: hidden;
 }
 
-p{
-    color: rgb(229, 232, 235);
-    line-height: 1.5;
-    font-size: 16px;
-    font-weight: 300;
-}
-
-a{
+a, a:visited{
+    color: white;
     text-decoration: none;
 }
 
-.title-cont{
-    text-align: center;
-    color: rgb(239, 241, 243);
-    position: absolute;
-    top: 3%;
-    left: 18%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 1000px;
-    font-size: 35px;
-    animation-duration: 0.5s;
+p{
+    font-size: large;
+    background: #242424f6;
+    margin: 25px;
+    font-weight: 300;
 }
 
+details {
+    user-select: none;
+    font-weight: 400;
+    margin: auto;
+    width: 40%;
+    font-weight: 600;
+    background: #242424f6;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    overflow: hidden;
+    color: white;
+}
+
+summary {
+    padding: 1rem;
+    display: block;
+    background: #333;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+}
+
+summary:before {
+    content: "";
+    border-width: 0.4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: 0.2rem 50%;
+    transition: 0.25s transform ease;
+}
+
+/* THE MAGIC 🧙‍♀️ */
+details[open] > summary:before {
+    transform: rotate(90deg);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details > ul {
+    margin-bottom: 0;
+}
+
+
+.titleStuff{
+    color: rgb(239, 241, 243);
+    position: absolute;
+    left: -1%;
+    top: 3%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 35px;
+}
+
+.firstDet{
+    position: absolute;
+    left: 58vh;
+    top: 32vh;
+    --animate-delay: 1s;
+}
+
+.secondDet{
+    position: absolute;
+    top: 58vh;
+    left: 58vh;
+    --animate-delay: 1.5s;
+}
+
+
+/* CBF to deal with automatic scaling AND not repositioning elements
+with the opening of details so this is what you get. */
+
+/*dear god this sucks so i'll probably look for a way to fix it someday*/
+@media (max-width: 1920px) {   
+    .secondDet{
+        top: 61vh;
+  }
+}
+@media (max-width: 1700px) {
+    .firstDet{
+        top: 32vh;
+        left:48vh;
+    }
+    
+    .secondDet{
+        top: 58vh;
+        left: 48vh;
+  }
+}
+
+@media (max-width: 1322px) {
+    .firstDet{
+        top: 32vh;
+        left:38vh;
+    }
+    
+    .secondDet{
+        top: 58vh;
+        left: 38vh;
+  }
+}
+
+@media (max-width: 1080px) {
+    .firstDet{
+        top: 32vh;
+        left:30vh;
+    }
+    
+    .secondDet{
+        top: 58vh;
+        left: 30vh;
+  }
+}
+
+@media (max-width: 800px) {
+    .firstDet{
+        top: 32vh;
+        left:25vh;
+    }
+    
+    .secondDet{
+        top: 58vh;
+        left: 25vh;
+  }
+}
+@media (max-width: 600px) {
+    .firstDet{
+        top: 32vh;
+        left:19vh;
+    }
+    
+    .secondDet{
+        top: 64vh;
+        left: 19vh;
+  }
+}
