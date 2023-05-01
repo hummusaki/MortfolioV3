@@ -40,10 +40,12 @@ function contact() {
     .catch(() => {
       loading.classList.remove("modal__overlay--visible");
       alert(
-        "The email service is temporarily unavailable. Please contact me directly on gabriel@gabmort.me"
+        "The automated email service is temporarily unavailable. Please contact me directly on gabriel@gabmort.me"
       );
     });
 }
+
+// Decoration stuff (ignore)
 
 function openModal() {
   // Toggle contact modal
