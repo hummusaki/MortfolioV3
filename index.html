@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mortfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <!--Animate on scroll library, basically the foundation of the scroll animations in css-->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link id="favicon" rel="icon" href="/assets/m2.png" />
   </head>
@@ -107,18 +106,13 @@
           </h3>
           <!-- TODO: stop using awful formspree and their awful redirect -->
           <form
-                action="https://formspree.io/f/xgvawypd"
+                action="https://formsubmit.co/3ff13e856265ba419d10f639b75e8ece"
                 method="POST"
               >
-                <label>
-                  Your email:
-                  <input type="email" name="email">
-                </label>
-                <label>
-                  Message:
-                  <textarea name="message"></textarea>
-                </label>
-                <!-- your other form fields go here -->
+                <input class="email-input-short" type="text" name="name" placeholder="full name">
+                <input class="email-input-short" type="email" name="email" placeholder="e-mail address">
+                <textarea class="email-input-long" placeholder="your message" name="message" rows="5"></textarea>
+                <input type="hidden" name="_next" value="https://gabmort.me/thank-you/">
                 <button id="contact__submit" class="form__submit" type="submit">
                   Send it.
                 </button>
