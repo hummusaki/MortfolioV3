@@ -113,6 +113,7 @@
                 <input class="email-input-short" type="email" name="email" placeholder="e-mail address">
                 <textarea class="email-input-long" placeholder="your message" name="message" rows="5"></textarea>
                 <input type="hidden" name="_next" value="https://gabmort.me/thank-you/">
+                <input type="hidden" name="_captcha" value="false">
                 <button id="contact__submit" class="form__submit" type="submit">
                   Send it.
                 </button>
@@ -241,15 +242,6 @@
       src="https://kit.fontawesome.com/ec1a2aeda3.js"
       crossorigin="anonymous"
     ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init("CYWsMgTd3elfUNQzp");
-      })();
-    </script>
         <script defer src="index.js"></script>
   </body>
 </html>

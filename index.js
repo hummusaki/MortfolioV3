@@ -45,33 +45,6 @@ function toggleContrast() {
   }
 }
 
-
-
-function contact(event) {
-  // Email plugin stuff
-  event.preventDefault();
-  const loading = document.querySelector(".modal__overlay--loading");
-  const success = document.querySelector(".modal__overlay--success");
-  loading.classList += " modal__overlay--visible";
-  emailjs
-    .sendForm(
-      "service_an9eukr",
-      "template_2bfcyon",
-      event.target,
-      "CYWsMgTd3elfUNQzp"
-    )
-    .then(() => {
-      loading.classList.remove("modal__overlay--visible");
-      success.classList += " modal__overlay--visible";
-    })
-    .catch(() => {
-      loading.classList.remove("modal__overlay--visible");
-      alert(
-        "The automated email service is temporarily unavailable. Please contact me directly at gabriel@gabmort.me"
-      );
-    });
-}
-
 // Decoration stuff (ignore)
 
 function openModal() {
