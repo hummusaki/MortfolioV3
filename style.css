@@ -101,7 +101,7 @@ textarea:focus {
   font-weight: 300;
 }
 
-.orange {
+.purple {
   color: #6931b3 !important;
 }
 .link__hover-effect {
@@ -194,7 +194,7 @@ nav,
 .header {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   width: 80%;
   max-width: 1000px;
@@ -204,7 +204,7 @@ nav,
   position: relative;
 }
 .header__para {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 2;
   max-width: 450px;
 }
@@ -213,12 +213,12 @@ nav,
   display: flex;
 }
 .social__link {
-  background-color: #6931b3;
+  background-color: #423256;
   color: white;
   padding: 6px;
-  width: 32px;
-  height: 32px;
-  font-size: 14px;
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
   margin-right: 12px;
   display: flex;
   justify-content: center;
@@ -415,6 +415,7 @@ nav {
 }
 .modal__title {
   font-size: 26px;
+  margin-bottom: 20px;
 }
 
 .modal__sub-title {
@@ -425,6 +426,25 @@ nav {
 .modal__para {
   margin-bottom: 12px;
   line-height: 1.75;
+  font-size: 17px;
+}
+
+#form-status {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+#form-status.loading {
+  color: #ff6600; /* Orange for loading */
+}
+
+#form-status.success {
+  color: #28a745; /* Green for success */
+}
+
+#form-status.error {
+  color: #dc3545; /* Red for error */
 }
 
 .form__item {
@@ -626,7 +646,8 @@ footer {
   margin: 100px auto 0;
   position: absolute;
   transform: scale(1);
-  left: 750px;
+  top: -50px;
+  left: 1000px;
 }
 
 .cube {

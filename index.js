@@ -2,6 +2,33 @@ let isModalOpen = false;
 let contrastToggle = false;
 const scaleFactor = 1 / 20;
 const favicon = document.getElementById("favicon");
+const tod = document.getElementById("tod");
+var hours = (new Date()).getHours();
+
+function getTOD() {
+  if (hours >= 12 && hours <= 17){
+    return "Good afternoon,";
+  } else if (hours > 17 && hours < 23){
+    return "Good evening,";
+  } else if (hours >= 6 && hours < 12 ){
+    return "Good morning,";
+  } else{
+    return "Hey,";
+  }
+}
+
+// time of day func
+document.addEventListener("DOMContentLoaded", function() {
+  if (tod) { // error prevention
+    tod.innerText = getTOD();
+    console.log(hours);
+  }
+  else{
+    tod.innerText = "Hey,";
+  }
+});
+
+
 
 AOS.init(); // Initialize AOS plugin
 // AOS = Animate On scroll
@@ -20,7 +47,7 @@ function toggleContrast() {
 
 
 
-function contact() {
+function contact(event) {
   // Email plugin stuff
   event.preventDefault();
   const loading = document.querySelector(".modal__overlay--loading");
@@ -34,13 +61,13 @@ function contact() {
       "CYWsMgTd3elfUNQzp"
     )
     .then(() => {
-      loading.classList.remove("modal__overlay-visible");
+      loading.classList.remove("modal__overlay--visible");
       success.classList += " modal__overlay--visible";
     })
     .catch(() => {
       loading.classList.remove("modal__overlay--visible");
       alert(
-        "The automated email service is temporarily unavailable. Please contact me directly on gabriel@gabmort.me"
+        "The automated email service is temporarily unavailable. Please contact me directly at gabriel@gabmort.me"
       );
     });
 }

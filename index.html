@@ -59,17 +59,16 @@
               <div class="face top"></div>
               <div class="face bottom"></div>
             </div>
-            <b class="cube__para orange">
+            <b class="cube__para purple">
               If this doesn't look like a cube,<br /> <!--my line break spamming problem persists-->
               you might have to blink once or twice;<br />
               perspective is tricky.</b
             >
           </div>
-          <h1 class="title">Hey,</h1>
-          <h1 class="title orange">I'm Gabriel.</h1>
+          <h1 class="title" id="tod"></h1>
+          <h1 class="title purple">I'm Gabriel</h1>
           <p class="header__para" id="-headerpara">
-            I'm a <b class="orange">Computer Science </b>student with the dream of
-            creating useful applications for everyone to use.
+            a <b class="purple">Computer Science </b> student based out of Los Angeles.
           </p>
           <div class="social__list">
             <a
@@ -93,14 +92,11 @@
           <h3 class="modal__title modal__sub-title--about" name="modaltitle">
             Here's a bit about me.
           </h3>
-          <h4 class="modal__sub-title modal__sub-title--about">
-            If you'd like to know more, contact me!
-          </h4>
           <p class="modal__para" name="modalpara">
             I'm a 
-            <b class="orange">Compuer Science</b> and <b class="orange">Software Engineering</b> student restarting my journey into the programming world.
-            <br />
-            I'm currently focusing on starting my college degree and further learning after focusing on work experience. My other interests include 70s rock music, mechanical engineering, and competitive gaming.
+            <b class="purple">Compuer Science</b> and <b class="purple">Software Engineering</b> student currently working on expanding my portfolio of projects.
+            <br> <br>
+            I currently work with Ruby on Rails, a frontent suite of HTML/HAML/CSS, JS/TS and C++; <br> I have experience with Linux and Windows Subsystem for Linux (WSL2), Windows & Microsoft 365 Administration, Git version control, and Administrative Assistance & Systems Research.
           </p>
         </div>
         <div class="modal__half modal__contact">
@@ -109,27 +105,24 @@
           <h3 class="modal__sub-title modal__sub-title-contact">
             I'd love to hear from you.
           </h3>
-          <form onsubmit="contact(event)" id="contact__form">
-            <div class="form__item">
-              <label class="form__item--label">Name</label>
-              <input class="input" name="user_name" type="text" required />
-            </div>
-            <div class="form__item">
-              <label class="form__item--label">Email</label>
-              <input class="input" name="user_email" type="email" required />
-            </div>
-            <div class="form__item">
-              <label class="form__item--label">Message</label>
-              <textarea
-                class="input"
-                name="message"
-                type="text"
-                required
-              ></textarea>
-            </div>
-            <button id="contact__submit" class="form__submit">
-              Send it my way.
-            </button>
+          <!-- TODO: stop using awful formspree and their awful redirect -->
+          <form
+                action="https://formspree.io/f/xgvawypd"
+                method="POST"
+              >
+                <label>
+                  Your email:
+                  <input type="email" name="email">
+                </label>
+                <label>
+                  Message:
+                  <textarea name="message"></textarea>
+                </label>
+                <!-- your other form fields go here -->
+                <button id="contact__submit" class="form__submit" type="submit">
+                  Send it.
+                </button>
+              </form>
           </form>
           <div class="modal__overlay modal__overlay--loading">
             <i class="fas fa-spinner"></i>
@@ -149,7 +142,7 @@
       >
         <div class="row">
           <h1 class="section__title">
-            Here are some of my <span class="orange"> projects </span>
+            Here are some of my <span class="purple"> projects </span>
           </h1>
           <ul class="project__list">
             <li class="project">
@@ -250,7 +243,6 @@
       </div>
     </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="index.js"></script>
     <script
       src="https://kit.fontawesome.com/ec1a2aeda3.js"
       crossorigin="anonymous"
@@ -264,5 +256,6 @@
         emailjs.init("CYWsMgTd3elfUNQzp");
       })();
     </script>
+        <script defer src="index.js"></script>
   </body>
 </html>
