@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", setTimeout(function() {
     } 
     document.getElementById('redirect').style.visibility = 'visible';
     setTimeout(function() {
-        //window.location.replace('http://gabmort.me'); 
+        window.location.replace('http://gabmort.me'); 
     }, 3500)
 }, 3500));
