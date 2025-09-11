@@ -37,7 +37,7 @@ function toggleContrast() {
   // Light mode toggler
   contrastToggle = !contrastToggle;
   if (contrastToggle) {
-    document.body.classList += " dark-theme";
+    document.body.classList += "dark-theme";
     favicon.setAttribute("href", "/assets/m.png");
   } else {
     document.body.classList.remove("dark-theme");
