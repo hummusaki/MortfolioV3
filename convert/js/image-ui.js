@@ -9,17 +9,19 @@ const downloadBtn = document.getElementById('bownloadBtn');
 
 let convertedFileData = null;
 
+// convert button
 convertBtn.addEventListener('click', async() => {
     const file = fileInput.files[0];  // get selected file
     const outputFormat = fileFormat.value; // get current value
-    const inputType = file.type;  // get MIME type of the file
-    console.log('Selected file type:', inputType);
 
     // check if file exists
     if (!file) {
         statusMessage.textContent = 'No file selected.';
         return;
     }
+
+    const inputType = file.type;  // get MIME type of the file
+    console.log('Selected file type:', inputType);
 
     downloadBtn.disabled = true; // disable download button until conversion is done
     statusMessage.textContent = 'Reading file...';
@@ -55,6 +57,7 @@ convertBtn.addEventListener('click', async() => {
     }
 });
 
+// download button
 downloadBtn.addEventListener('click', () => {
     if (convertedFileData) {
         triggerDownload(convertedFileData.data, convertedFileData.fileName);
