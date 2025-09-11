@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Converter</title>
     <link rel="stylesheet" href="style.css">
+    <link id="favicon" rel="icon" href="../assets/m2.png"/>
 </head>
 <body>
     <div class="top-ribbon">
-        <a href="https://gabmort.me/">
+        <a href="./../">
             <img src="/assets/m.png" alt="gabmort logo" class="ribbon-logo">
         </a>
     </div>
+
+    <div class="title-box">
+        <h1>
+            File Converter
+        </h1>
+    </div>
+
     <div class="container">
-        <div class="title-box">
-            <h1>
-                File Converter Tool
-            </h1>
-        </div>
-
         <div class="select-format">
-            <label for="format">Select output format: </label>
-
+            <label for="format">Select output format</label>
+            <br>
             <select name="format" id="format">
                 <option value="pdf">PDF</option>
                 <option value="png">PNG</option>
@@ -31,13 +33,18 @@
         </div>
 
         <div class="select-file">
-            <label for="fileInput">Choose a file to convert:</label>
+            <label for="fileInput">Choose a file to convert</label>
+            <br>
             <input type="file" id="fileInput">
-            <p id="status"></p>
         </div>
 
         <div class="convert-button">
             <button id="convertBtn">Convert File</button>
+        </div>
+
+        <div class="status-box">
+            <p class="status">Status: </p>
+            <p id="status">Please upload a file.</p>
         </div>
 
         <div class="download-button">
