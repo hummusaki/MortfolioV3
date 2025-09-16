@@ -9,14 +9,15 @@
 </head>
 <body>
     <div class="top-ribbon">
-        <a href="./../" class="ribbon-center">
-            <img src="/assets/m.png" alt="gabmort logo" class="ribbon-logo">
-        </a>
-        <ul class="nav-list">
-            <li class="nav-link">
-                <a class="media nav-btn" href="../">Files</a>
-            </li>
-        </ul>
+        <div class="ribbon-logo-center">
+            <a href="./../">
+                <img src="/assets/m.png" alt="gabmort logo" class="ribbon-logo">
+            </a>
+        </div>
+        <div class="ribbon-actions">
+            <a href="../" class="nav-btn ribbon-btn">Files</a>
+            <button id="darkModeBtn" class="ribbon-btn">🌙</button>
+        </div>
     </div>
 
     <div class="title-box">
@@ -59,4 +60,13 @@
     <script type="module" src="js/image-ui.js"></script>
     <script src="https://kit.fontawesome.com/ec1a2aeda3.js" crossorigin="anonymous"></script>
 </body>
+</body>
+<script>
+// Dark mode toggle
+const darkBtn = document.getElementById('darkModeBtn');
+darkBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    darkBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+});
+</script>
 </html>
