@@ -1,11 +1,34 @@
 import { convertFile } from './image-convert.js';
-import { triggerDownload } from './utils.js';
+import { triggerDownload, toggleContrast } from './utils.js';
 
 const fileInput = document.getElementById('fileInput');
 const statusMessage = document.getElementById('status');
 const fileFormat = document.getElementById('format');
 const convertBtn = document.getElementById('convertBtn');
 const downloadBtn = document.getElementById('bownloadBtn');
+const contrastBtn = document.getElementById('darkModeBtn');
+
+document.body.classList.add("no-transition");
+
+const getInitialState = () => {
+    const savedState = localStorage.getItem('contrastToggle');
+    if (savedState == null) {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    if (savedState === 'true') {
+        document.body.classList.add("dark-mode");
+        return true;
+    } else {
+        document.body.classList.remove("dark-mode");
+        return false;
+    }
+}
+
+var contrastToggle = getInitialState();
+
+setTimeout(() => {
+    document.body.classList.remove("no-transition");
+}, 10);
 
 let convertedFileData = null;
 
@@ -64,6 +87,11 @@ downloadBtn.addEventListener('click', () => {
     } else {
         statusMessage.textContent = 'No converted file available for download.';
     }
+});
+
+contrastBtn.addEventListener('click', () => {
+    contrastToggle = toggleContrast(contrastToggle);
+    localStorage.setItem('contrastToggle', contrastToggle);
 });
 
 function readFileAsArrayBuffer(file) {

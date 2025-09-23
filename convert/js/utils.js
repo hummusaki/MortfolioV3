@@ -10,3 +10,19 @@ export function triggerDownload(data, filename) {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
+export function toggleContrast(contrastToggle) {
+    contrastToggle = !contrastToggle;
+    if (contrastToggle) {
+        document.body.classList += "dark-mode";
+        favicon.setAttribute("href", "../../assets/m.png");
+        const logo = document.querySelector('.ribbon-logo');
+        if (logo) logo.setAttribute('src', '/assets/m2.png');
+    } else {
+        document.body.classList.remove("dark-mode");
+        favicon.setAttribute("href", "../../assets/m2.png");
+        const logo = document.querySelector('.ribbon-logo');
+        if (logo) logo.setAttribute('src', '/assets/m.png');
+    }
+    return contrastToggle;
+}
