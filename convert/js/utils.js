@@ -11,16 +11,42 @@ export function triggerDownload(data, filename) {
     URL.revokeObjectURL(url);
 }
 
+
+// dark mode functions
 export function toggleContrast(contrastToggle) {
+    const favicon = document.getElementById('favicon');
     contrastToggle = !contrastToggle;
     if (contrastToggle) {
-        document.body.classList += "dark-mode";
-        favicon.setAttribute("href", "../../assets/m.png");
+        document.body.classList.add("dark-mode");
+        if (favicon) favicon.setAttribute("href", "../../assets/m.png");
         const logo = document.querySelector('.ribbon-logo');
         if (logo) logo.setAttribute('src', '/assets/m2.png');
     } else {
         document.body.classList.remove("dark-mode");
-        favicon.setAttribute("href", "../../assets/m2.png");
+        if (favicon) favicon.setAttribute("href", "../../assets/m2.png");
+        const logo = document.querySelector('.ribbon-logo');
+        if (logo) logo.setAttribute('src', '/assets/m.png');
+    }
+    return contrastToggle;
+}
+
+export function setInitialContrast() {
+    const favicon = document.getElementById('favicon');
+    const savedState = localStorage.getItem('contrastToggle');
+    let contrastToggle;
+    if (savedState == null) {
+        contrastToggle = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } else {
+        contrastToggle = savedState === 'true';
+    }
+    if (contrastToggle) {
+        document.body.classList.add("dark-mode");
+        if (favicon) favicon.setAttribute("href", "../../assets/m.png");
+        const logo = document.querySelector('.ribbon-logo');
+        if (logo) logo.setAttribute('src', '/assets/m2.png');
+    } else {
+        document.body.classList.remove("dark-mode");
+        if (favicon) favicon.setAttribute("href", "../../assets/m2.png");
         const logo = document.querySelector('.ribbon-logo');
         if (logo) logo.setAttribute('src', '/assets/m.png');
     }

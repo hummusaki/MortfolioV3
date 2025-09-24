@@ -1,5 +1,5 @@
 import { convertFile } from './image-convert.js';
-import { triggerDownload, toggleContrast } from './utils.js';
+import { triggerDownload, toggleContrast, setInitialContrast } from './utils.js';
 
 const fileInput = document.getElementById('fileInput');
 const statusMessage = document.getElementById('status');
@@ -8,23 +8,10 @@ const convertBtn = document.getElementById('convertBtn');
 const downloadBtn = document.getElementById('bownloadBtn');
 const contrastBtn = document.getElementById('darkModeBtn');
 
+
 document.body.classList.add("no-transition");
 
-const getInitialState = () => {
-    const savedState = localStorage.getItem('contrastToggle');
-    if (savedState == null) {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    if (savedState === 'true') {
-        document.body.classList.add("dark-mode");
-        return true;
-    } else {
-        document.body.classList.remove("dark-mode");
-        return false;
-    }
-}
-
-var contrastToggle = getInitialState();
+var contrastToggle = setInitialContrast();
 
 setTimeout(() => {
     document.body.classList.remove("no-transition");
