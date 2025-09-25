@@ -19,7 +19,10 @@ setTimeout(() => {
 
 let convertedFileData = null;
 
-const ffmpegPromise = loadFFmpeg(); // start loading ffmpeg as soon as possible
+// ffmpeg instance + logging
+
+const ffmpeg = loadFFmpeg(); 
+
 
 // convert button
 
