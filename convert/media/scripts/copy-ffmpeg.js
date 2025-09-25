@@ -5,8 +5,9 @@
 const fs = require('fs'); // filesystem
 const path = require('path'); // path module
 
-const srcDistDir = path.join(__dirname, '..', 'node_modules', '@ffmpeg', 'core', 'dist'); // source directory
-const outRootDir = path.join(__dirname, '..', 'public', 'ffmpeg'); // output directory
+const projectRoot = process.cwd(); // root directory
+const srcDistDir = path.join(projectRoot, 'node_modules', '@ffmpeg', 'core', 'dist'); // source directory
+const outRootDir = path.join(projectRoot, 'convert', 'media', 'public', 'ffmpeg'); // output directory
 
 // creates output directory and copies files and subdirs recursively
 function copyDirRecursive(src, dest) {
