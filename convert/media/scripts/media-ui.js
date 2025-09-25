@@ -1,5 +1,6 @@
 //import { convertFile } from './media-convert.js';
 import { triggerDownload, toggleContrast, setInitialContrast } from '../../scripts/utils.js';
+import { loadFFmpeg } from './client.js';
 
 const fileInput = document.getElementById('fileInput');
 const statusMessage = document.getElementById('status');
@@ -17,6 +18,8 @@ setTimeout(() => {
 }, 10);
 
 let convertedFileData = null;
+
+const ffmpegPromise = loadFFmpeg(); // start loading ffmpeg as soon as possible
 
 // convert button
 
