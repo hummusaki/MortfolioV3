@@ -5,6 +5,11 @@
     "@ffmpeg/util": "^0.12.2"
   },
   "scripts": {
-    "postinstall": "node convert/media/scripts/copy-ffmpeg.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
   }
 }
