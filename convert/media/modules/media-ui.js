@@ -48,7 +48,6 @@ convertBtn.addEventListener('click', async() => {
 
     downloadBtn.disabled = true; // disable download button until conversion is done
     statusMessage.textContent = 'Reading media...';
-    convertBtn.disabled = true; // prevent multiple uploads
 
     
     try{
