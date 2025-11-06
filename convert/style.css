@@ -136,11 +136,14 @@ button, .convert-button button, .download-button button {
     padding: 0.7rem 2.2rem;
     box-shadow: 0 2px 8px 0 rgba(79, 33, 138, 0.10);
     cursor: pointer;
+    transition: background-color 300ms cubic-bezier(.2,.9,.2,1), color 300ms cubic-bezier(.2,.9,.2,1), transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease;
+    will-change: background-color, color, transform, box-shadow;
 }
 
 button:hover, .convert-button button:hover, .download-button button:hover {
     background: #4f218a;
-    transform: translateY(-2px) scale(1.04);
+    color: #fff;
+    transform: translateY(-1px) scale(1.02);
     box-shadow: 0 6px 18px 0 rgba(0,0,0,0.13);
 }
 
