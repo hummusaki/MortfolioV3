@@ -3,7 +3,6 @@ import { triggerDownload, toggleContrast, setInitialContrast } from '../../modul
 import { loadFFmpeg } from './client.js';
 
 // elements
-
 const fileInput = document.getElementById('fileInput');
 const statusMessage = document.getElementById('status');
 const fileFormat = document.getElementById('format');
@@ -12,47 +11,63 @@ const downloadBtn = document.getElementById('bownloadBtn');
 const contrastBtn = document.getElementById('darkModeBtn');
 
 // dark mode setup
-
 document.body.classList.add("no-transition");
-
 var contrastToggle = setInitialContrast();
-
-setTimeout(() => {
-    document.body.classList.remove("no-transition");
-}, 10);
+setTimeout(() => document.body.classList.remove("no-transition"), 10);
 
 // state variables
-
 let convertedFileData = null;
 let ffmpeg = null;
+let isConverting = false;
+
+//funcs
+
+// helper, retain base file name and replace extension
+function withExtension(fileName, newExt) {
+    newExt = newExt.replace(/^\./, ''); // remove dot
+    const base = fileName.replace(/\.[^/.]+$/, '');
+    return `${base}.${newExt}`;
+}
+
+// smart(ish) default based on file MIME type
+function defaultFormat(file) {
+    if(!file) return 'mp4'; //default
+    if(file.type.startsWith('audio/')) return 'mp3';
+    if(file.type.startsWith('video/')) return 'mp4';
+    return 'mp4'; //default
+}
 
 // ffmpeg instance + logging
-
 if(!ffmpeg) {
     ffmpeg = await loadFFmpeg(statusMessage);
     ffmpeg.on('progress', ({ progress }) => {
         console.log(`Progress: ${(progress * 100).toFixed(1)}%`);
     });
+    ffmpeg.on('log', ({ message }) => {
+        console.log(`ffmpeg: ${message}`);
+    });
 }
+
 
 // convert button
 
 convertBtn.addEventListener('click', async() => {
-    const file = fileInput.files[0];  // get selected file
-
-    // check if file exists
+    // checks
+    if (isConverting) return;
+    const file = fileInput.files?.[0];
     if (!file) {
-        statusMessage.textContent = 'No media selected.';
+        statusMessage.textContent = 'No file selected.';
         return;
     }
-
     downloadBtn.disabled = true; // disable download button until conversion is done
-    statusMessage.textContent = 'Reading media...';
-    convertBtn.disabled = true; // prevent multiple uploads
 
+    // avoid memory leaks
+    if (convertedFileData?.url) {
+        URL.revokeObjectURL(convertedFileData.url);
+    }
     
     try{
-        transcode(ffmpeg, file, ['-i', file.name, '-c:v', 'libx264', '-preset', 'fast', '-c:a', 'aac', '-b:a', '192k', '-movflags', 'faststart', `output.${fileFormat.value}`], `output.${fileFormat.value}`, document.getElementById('outputVideo'))
+        const selectedFormat = fileFormat.value; // default to mp4 
     }
     catch(error){
         console.error('Conversion error:', error);

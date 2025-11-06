@@ -59,12 +59,15 @@
     outline: none;
     display: inline-block;
     height: 25px;
+    /* smoother transitions for hover */
+    transition: background-color 240ms cubic-bezier(.2,.9,.2,1), color 240ms cubic-bezier(.2,.9,.2,1), transform 200ms ease, box-shadow 200ms ease;
+    will-change: background-color, color, transform, box-shadow;
 }
 
 .ribbon-btn:hover {
-    background: #6931b3;
+    background-color: #6931b3;
     color: #fff;
-    transform: translateY(-1px) scale(1.04);
+    transform: translateY(-1px) scale(1.02);
     box-shadow: 0 6px 18px 0 rgba(0,0,0,0.13);
 }
 
