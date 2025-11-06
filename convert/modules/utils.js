@@ -17,12 +17,12 @@ export function toggleContrast(contrastToggle) {
     const favicon = document.getElementById('favicon');
     contrastToggle = !contrastToggle;
     if (contrastToggle) {
-        document.body.classList.add("dark-mode");
+        document.documentElement.classList.add("dark-mode");
         if (favicon) favicon.setAttribute("href", "../../assets/m.png");
         const logo = document.querySelector('.ribbon-logo');
         if (logo) logo.setAttribute('src', '/assets/m2.png');
     } else {
-        document.body.classList.remove("dark-mode");
+        document.documentElement.classList.remove("dark-mode");
         if (favicon) favicon.setAttribute("href", "../../assets/m2.png");
         const logo = document.querySelector('.ribbon-logo');
         if (logo) logo.setAttribute('src', '/assets/m.png');
@@ -40,12 +40,12 @@ export function setInitialContrast() {
         contrastToggle = savedState === 'true';
     }
     if (contrastToggle) {
-        document.body.classList.add("dark-mode");
+        document.documentElement.classList.add("dark-mode");
         if (favicon) favicon.setAttribute("href", "../../assets/m.png");
         const logo = document.querySelector('.ribbon-logo');
         if (logo) logo.setAttribute('src', '/assets/m2.png');
     } else {
-        document.body.classList.remove("dark-mode");
+        document.documentElement.classList.remove("dark-mode");
         if (favicon) favicon.setAttribute("href", "../../assets/m2.png");
         const logo = document.querySelector('.ribbon-logo');
         if (logo) logo.setAttribute('src', '/assets/m.png');

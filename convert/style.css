@@ -15,8 +15,8 @@
     height: 4rem;
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13), 0 1.5px 8px 0 rgba(0,0,0,0.10);
 
-    /* dark-mode transition */
-    transition: background 600ms ease, color 600ms ease; 
+    /* dark-mode transition - match page timing */
+    transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease; 
 }
 
 .ribbon-logo-center {
@@ -59,8 +59,8 @@
     outline: none;
     display: inline-block;
     height: 25px;
-    /* smoother transitions for hover */
-    transition: background-color 240ms cubic-bezier(.2,.9,.2,1), color 240ms cubic-bezier(.2,.9,.2,1), transform 200ms ease, box-shadow 200ms ease;
+    /* smoother transitions for hover - align with page timing */
+    transition: background-color 300ms cubic-bezier(.2,.9,.2,1), color 300ms cubic-bezier(.2,.9,.2,1), transform 200ms ease, box-shadow 200ms ease;
     will-change: background-color, color, transform, box-shadow;
 }
 
@@ -162,8 +162,8 @@ body {
     background-size: 80rem auto;
     background-position: center -13.5rem;
     
-    /* dark-mode transition */
-    transition: background 600ms ease, color 600ms ease; 
+    /* dark-mode transition - match page timing */
+    transition: background 300ms ease, color 300ms ease; 
 }
 
 select, input, button {
