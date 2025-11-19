@@ -26,7 +26,7 @@ html.light-mode {
     --line-color: rgba(75, 50, 120, 0.3); 
 }
 
-/* __ NO TRANSITION UTILITY (Stops flashing) __ */
+/* __ NO TRANSITION UTILITY __ */
 .no-transition,
 .no-transition * {
     transition: none !important;
@@ -82,8 +82,6 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 5px;
     color: var(--text-color);
-    
-    /* FIXED: Keep these dimensions so it doesn't squash */
     width: 45px; 
     height: 45px;
     font-size: 1.5rem;
@@ -351,7 +349,7 @@ body {
         padding: 40px 20px;
         width: 100%;
         box-sizing: border-box;
-        min-height: auto; /* Reset min-height for mobile */
+        min-height: auto;
     }
 
     /* sidebar is now "bottom sheet" */
@@ -373,7 +371,6 @@ body {
         opacity: 1;
     }
     
-    /* Re-enable display for mobile so height anim works */
     .options-sidebar:not(.active) .sidebar-content {
         display: flex; 
     }

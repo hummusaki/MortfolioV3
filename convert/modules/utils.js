@@ -13,7 +13,6 @@ export function triggerDownload(data, filename) {
 // -- theme logic --
 
 export function toggleContrast() {
-    // FIX: Check <html> tag, not body
     let isLightMode = document.documentElement.classList.contains('light-mode');
     isLightMode = !isLightMode;
 
@@ -44,7 +43,6 @@ function applyTheme(isLightMode) {
     const toggleBtnIcon = document.querySelector('.dark-mode-toggle i');
 
     if (isLightMode) {
-        // FIX: Apply to <html>
         document.documentElement.classList.add("light-mode");
         
         if (favicon) favicon.setAttribute("href", "/assets/m2.png");
@@ -54,7 +52,6 @@ function applyTheme(isLightMode) {
             toggleBtnIcon.classList.add('fa-sun');
         }
     } else {
-        // FIX: Remove from <html>
         document.documentElement.classList.remove("light-mode");
         
         if (favicon) favicon.setAttribute("href", "/assets/m.png");

@@ -1,4 +1,3 @@
-// IMPORTS - All from one folder now
 import { triggerDownload, toggleContrast, setInitialContrast } from './modules/utils.js';
 import { convertFile as convertImageFile } from './modules/image-convert.js';
 import { transcode } from './modules/media-convert.js'; 
@@ -6,18 +5,18 @@ import { loadFFmpeg } from './modules/client.js';
 
 // CONFIG
 const SUPPORTED_FORMATS = {
-    // Images
+    // images
     'image/png': ['JPG', 'WEBP', 'PDF'],
     'image/jpeg': ['PNG', 'WEBP', 'PDF'],
     'image/webp': ['PNG', 'JPG', 'PDF'],
     'application/pdf': ['PNG', 'JPG', 'WEBP'],
     
-    // Audio
+    // audio
     'audio/mpeg': ['WAV', 'OGG', 'AAC'], // MP3
     'audio/wav': ['MP3', 'OGG', 'AAC'],
     'audio/x-m4a': ['MP3', 'WAV'],
     
-    // Video
+    // video
     'video/mp4': ['MP3', 'GIF', 'AVI', 'MOV'],
     'video/quicktime': ['MP4', 'MP3', 'GIF'], // MOV
     'video/webm': ['MP4', 'MP3', 'GIF'],
@@ -30,7 +29,7 @@ let currentFile = null;
 let convertedResult = null; 
 let ffmpegInstance = null;
 
-// DOM ELEMENTS
+// DOM
 const fileInput = document.getElementById('file-input');
 const formatSelect = document.getElementById('format-select');
 const sidebar = document.getElementById('options-sidebar');
@@ -51,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // CORE FUNCTIONS
-
 async function handleFileSelect(event) {
     const file = event.target.files[0];
     if (!file) return;
@@ -61,21 +59,21 @@ async function handleFileSelect(event) {
     downloadBtn.classList.add('disabled');
     statusText.textContent = '';
 
-    // UI Text
+    // UI text
     fileInfoText.textContent = `${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
 
-    // Determine Formats
+    // determine formats
     const typeKey = SUPPORTED_FORMATS[file.type] ? file.type : 'default';
     let options = SUPPORTED_FORMATS[typeKey];
     
-    // Fallback
+    // fallback
     if (options.length === 0) {
         if (file.type.startsWith('image/')) options = ['PNG', 'JPG', 'PDF'];
         else if (file.type.startsWith('video/')) options = ['MP4', 'MP3'];
         else if (file.type.startsWith('audio/')) options = ['MP3', 'WAV'];
     }
 
-    // Populate Dropdown
+    // populate dropdown
     formatSelect.innerHTML = '<option value="" disabled selected>Select format</option>';
     options.forEach(fmt => {
         const opt = document.createElement('option');
@@ -84,11 +82,11 @@ async function handleFileSelect(event) {
         formatSelect.appendChild(opt);
     });
 
-    // Open Sidebar
+    // open sidebar
     sidebar.classList.add('active');
     convertBtn.disabled = true; 
 
-    // Load FFmpeg for media
+    // load FFmpeg for media
     if (file.type.startsWith('video/') || file.type.startsWith('audio/')) {
         if (!ffmpegInstance) {
             statusText.textContent = "Initializing engine...";
@@ -117,7 +115,7 @@ async function handleConvertClick() {
     statusText.textContent = "Processing...";
 
     try {
-        // === IMAGE / PDF ===
+        // __ IMAGE / PDF __
         if (inputType.startsWith('image/') || inputType === 'application/pdf') {
             const fileBuffer = await currentFile.arrayBuffer();
             const resultData = await convertImageFile(fileBuffer, inputType, outputFormat);
@@ -130,7 +128,7 @@ async function handleConvertClick() {
                 throw new Error("Conversion returned no data");
             }
         } 
-        // === AUDIO / VIDEO ===
+        // __ AUDIO / VIDEO __
         else if (inputType.startsWith('video/') || inputType.startsWith('audio/')) {
             if (!ffmpegInstance) throw new Error("FFmpeg engine not loaded");
 

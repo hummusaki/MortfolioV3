@@ -1,4 +1,3 @@
-// Updated path to point to the media folder for assets
 import { fetchFile } from '../media/public/ffmpeg/util/dist/esm/index.js';
 
 function getMimeType(fileName) {
