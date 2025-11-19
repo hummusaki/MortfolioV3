@@ -1,3 +1,9 @@
+/*
+TODO: 
+- Grey out the format select / file select / convert fields while a conversion is happening
+- Fix the position and z-index of decor items on desktop/mobile (they should always be under top ribbon)
+*/
+
 import { triggerDownload, toggleContrast, setInitialContrast } from './modules/utils.js';
 import { convertFile as convertImageFile } from './modules/image-convert.js';
 import { transcode } from './modules/media-convert.js'; 
