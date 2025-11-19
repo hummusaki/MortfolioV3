@@ -170,8 +170,8 @@ body {
 }
 
 .left-panel {
-    padding: 1px 50px; 
-    min-height: 300px;
+    padding: 15px 50px; 
+    min-height: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,17 +184,19 @@ body {
 }
 
 /* __ OPTIONS SIDEBAR __ */
-.options-sidebar:not(.active) .sidebar-content {
-    display: none;
-}
-
 .options-sidebar {
     width: 0;
     opacity: 0;
     background-color: rgba(0,0,0,0.05); 
-    border-left: 0px solid transparent;
+    
+    /* CHANGED: border exists but is transparent (prevents resize jump) */
+    border-left: 1px solid transparent; 
+    
     overflow: hidden;
-    transition: width 0.4s ease, opacity 0.4s ease, border-left 0.4s;
+    
+    /* CHANGED: transition border-color instead of border-left */
+    transition: width 0.4s ease, opacity 0.4s ease, border-color 0.4s; 
+    
     display: flex;
     align-items: center;
 }
@@ -202,15 +204,19 @@ body {
 .options-sidebar.active {
     width: 350px;
     opacity: 1;
-    border-left: 1px solid var(--border-color);
+    
+    /* CHANGED: Only change the color, not the width */
+    border-color: var(--border-color); 
 }
 
 .sidebar-content {
-    padding: 20px;
+    /* Reduced vertical padding from 20px to 12px */
+    padding: 15px 20px; 
     min-width: 310px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    /* Reduced gap from 15px to 8px */
+    gap: 8px; 
     white-space: normal;
 }
 
@@ -221,11 +227,20 @@ body {
 }
 
 .file-info {
-    font-size: 0.8em;
+    font-size: 0.75em;
     color: var(--gray-text);
-    word-wrap: break-word; 
-    overflow-wrap: break-word;
+    
+    /* CHANGED: Prevent wrapping and use ellipsis (...) */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    /* Ensure it doesn't overflow the container */
+    max-width: 100%;
+    display: block; 
 }
+
+
 
 .format-select {
     padding: 8px;
@@ -286,7 +301,8 @@ body {
 }
 
 .sidebar-action-btn {
-    margin-top: 15px;
+    /* Reduced margin from 15px to 5px */
+    margin-top: 5px; 
     width: 100%;
     padding: 10px;
     background-color: var(--light-purple);
@@ -295,8 +311,7 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s;
-    color: #ffffff !important; 
-    font-weight: 600;
+    color: #ffffff !important;
 }
 
 .sidebar-action-btn:hover:not(:disabled) {
@@ -310,8 +325,10 @@ body {
 }
 
 .file-info-box {
-    margin-top: 10px;
-    padding: 10px;
+    /* Reduced margin from 10px to 5px */
+    margin-top: 5px; 
+    /* Reduced padding from 10px to 8px */
+    padding: 8px; 
     background-color: rgba(0,0,0,0.1);
     border-radius: 5px;
 }
@@ -376,7 +393,8 @@ body {
     }
 
     .sidebar-content {
-        padding: 30px 20px;
+        padding: 30px 15px;
+        min-width: 10%;
     }
 
     .navbar {
