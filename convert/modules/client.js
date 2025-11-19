@@ -1,12 +1,10 @@
-// Import FFmpeg class
 import { FFmpeg } from '../ffmpeg/esm/index.js';
 import { toBlobURL } from '../ffmpeg/util/dist/esm/index.js';
 
 export async function loadFFmpeg(statusElement) {
     const ffmpeg = new FFmpeg();
     
-    // Point to the correct location of the assets in /media/public/
-    const baseURL = './ffmpeg/esm';
+    const baseURL = new URL('../ffmpeg/esm', import.meta.url).href;
 
     await ffmpeg.load({
         coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
