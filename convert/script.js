@@ -2,6 +2,8 @@
 TODO: 
 - Grey out the format select / file select / convert fields while a conversion is happening
 - Fix the position and z-index of decor items on desktop/mobile (they should always be under top ribbon)
+- Fix whatever is preventing scrolling on mobile viewports
+
 */
 
 import { triggerDownload, toggleContrast, setInitialContrast } from './modules/utils.js';
