@@ -1,17 +1,24 @@
 (function(){
-    try{
+    try {
         var saved = localStorage.getItem('contrastToggle');
-        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        // ensure classes are applied to <html> before paint
+        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        
         document.documentElement.classList.add('no-transition');
-        if (saved === 'true' || (saved === null && prefersDark)) {
-            document.documentElement.classList.add('dark-mode');
+
+        if (saved === 'true' || (saved === null && prefersLight)) {
+            document.documentElement.classList.add('light-mode');
         }
-        // remove the no-transition after load to re-enable animations
+
+        var removeTransition = function() {
+            setTimeout(function(){ 
+                document.documentElement.classList.remove('no-transition'); 
+            }, 50);
+        };
+
         if (document.readyState === 'complete') {
-            setTimeout(function(){ document.documentElement.classList.remove('no-transition'); }, 50);
+            removeTransition();
         } else {
-            window.addEventListener('load', function(){ setTimeout(function(){ document.documentElement.classList.remove('no-transition'); }, 50); });
+            window.addEventListener('load', removeTransition);
         }
-    }catch(e){ /* ignore */ }
+    } catch(e){ /* ignore */ }
 })();

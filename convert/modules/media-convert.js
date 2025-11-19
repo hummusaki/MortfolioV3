@@ -1,4 +1,5 @@
-import { fetchFile } from '../public/ffmpeg/util/dist/esm/index.js';
+// Updated path to point to the media folder for assets
+import { fetchFile } from '../media/public/ffmpeg/util/dist/esm/index.js';
 
 function getMimeType(fileName) {
     const extension = fileName.split('.').pop().toLowerCase();
@@ -14,15 +15,11 @@ function getMimeType(fileName) {
 export async function transcode( ffmpeg, file, args, outputName, outputElement ) {
     const { name: inputName } = file;
 
-    console.log("break 1")
-    // write to virtual fs and update status
+    // write to virtual fs
     await ffmpeg.writeFile(inputName, await fetchFile(file));
 
     // run ffmpeg
     await ffmpeg.exec(args);
-    console.log("break 2")
 
-    // result
     const data = await ffmpeg.readFile(outputName);
-    outputElement.src = URL.createObjectURL(new Blob([data.buffer], {type: getMimeType(outputName)}));
 }

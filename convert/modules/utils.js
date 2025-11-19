@@ -1,5 +1,4 @@
 export function triggerDownload(data, filename) {
-    // wrap data in a Blob and create a download link
     const blob = new Blob([data]);
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -11,44 +10,58 @@ export function triggerDownload(data, filename) {
     URL.revokeObjectURL(url);
 }
 
+// -- theme logic --
 
-// dark mode functions
-export function toggleContrast(contrastToggle) {
-    const favicon = document.getElementById('favicon');
-    contrastToggle = !contrastToggle;
-    if (contrastToggle) {
-        document.documentElement.classList.add("dark-mode");
-        if (favicon) favicon.setAttribute("href", "../../assets/m.png");
-        const logo = document.querySelector('.ribbon-logo');
-        if (logo) logo.setAttribute('src', '/assets/m2.png');
-    } else {
-        document.documentElement.classList.remove("dark-mode");
-        if (favicon) favicon.setAttribute("href", "../../assets/m2.png");
-        const logo = document.querySelector('.ribbon-logo');
-        if (logo) logo.setAttribute('src', '/assets/m.png');
-    }
-    return contrastToggle;
+export function toggleContrast() {
+    // FIX: Check <html> tag, not body
+    let isLightMode = document.documentElement.classList.contains('light-mode');
+    isLightMode = !isLightMode;
+
+    applyTheme(isLightMode);
+    
+    localStorage.setItem('contrastToggle', isLightMode);
+    return isLightMode;
 }
 
 export function setInitialContrast() {
-    const favicon = document.getElementById('favicon');
     const savedState = localStorage.getItem('contrastToggle');
-    let contrastToggle;
-    if (savedState == null) {
-        contrastToggle = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let isLightMode;
+
+    if (savedState === null) {
+        isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
     } else {
-        contrastToggle = savedState === 'true';
+        isLightMode = savedState === 'true';
     }
-    if (contrastToggle) {
-        document.documentElement.classList.add("dark-mode");
-        if (favicon) favicon.setAttribute("href", "../../assets/m.png");
-        const logo = document.querySelector('.ribbon-logo');
-        if (logo) logo.setAttribute('src', '/assets/m2.png');
+
+    // applyTheme handles the class toggling now
+    applyTheme(isLightMode);
+    return isLightMode;
+}
+
+function applyTheme(isLightMode) {
+    const favicon = document.getElementById('favicon');
+    const icon = document.getElementById('navbar-icon');
+    const toggleBtnIcon = document.querySelector('.dark-mode-toggle i');
+
+    if (isLightMode) {
+        // FIX: Apply to <html>
+        document.documentElement.classList.add("light-mode");
+        
+        if (favicon) favicon.setAttribute("href", "/assets/m2.png");
+        if (icon) icon.setAttribute('src', '/assets/m.png');
+        if (toggleBtnIcon) {
+            toggleBtnIcon.classList.remove('fa-moon');
+            toggleBtnIcon.classList.add('fa-sun');
+        }
     } else {
-        document.documentElement.classList.remove("dark-mode");
-        if (favicon) favicon.setAttribute("href", "../../assets/m2.png");
-        const logo = document.querySelector('.ribbon-logo');
-        if (logo) logo.setAttribute('src', '/assets/m.png');
+        // FIX: Remove from <html>
+        document.documentElement.classList.remove("light-mode");
+        
+        if (favicon) favicon.setAttribute("href", "/assets/m.png");
+        if (icon) icon.setAttribute('src', '/assets/m2.png');
+        if (toggleBtnIcon) {
+            toggleBtnIcon.classList.remove('fa-sun');
+            toggleBtnIcon.classList.add('fa-moon');
+        }
     }
-    return contrastToggle;
 }
